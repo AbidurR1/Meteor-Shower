@@ -1,0 +1,37 @@
+void setup(){
+size(700,700);
+background(0);
+frameRate(30);
+smooth();
+}
+void draw(){
+TJ();
+}
+void TJ(){
+for(int s = 50; s <= height - 40; s+= 40){
+  for(int k = 50; k <= width - 40; k+= 40){
+    pushMatrix();                             
+    translate(s,k);                            
+    ellipseMode(CORNER);
+    noFill();
+    rotate(radians(frameCount/2.0));          
+    float Y = frameCount/900 ;
+    if(Y%2== 2){                              
+    colorMode(RGB,142);
+    fill(125,234);
+    }else{
+    colorMode(RGB,256);
+    fill(176,486);
+    }
+    noStroke();
+    ellipse(s,s,2,2);  
+    fill(255,0,0,127);
+    popMatrix();      
+    noFill();
+    arc(50, 55, 60, 60, HALF_PI, PI);
+    arc(50, 55, 70, 70, PI, PI+QUARTER_PI);
+    arc(50, 55, 80, 80, PI+QUARTER_PI, TWO_PI);
+    ellipse(s,k,4,4);
+    }
+}
+}
